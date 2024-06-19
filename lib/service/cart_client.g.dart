@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_api_repo.dart';
+part of 'cart_client.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,31 +8,33 @@ part of 'login_api_repo.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _LoginApiRepo implements LoginApiRepo {
-  _LoginApiRepo(
+class _CartClient implements CartClient {
+  _CartClient(
     this._dio, {
     this.baseUrl,
-  });
+  }) {
+    baseUrl ??= 'https://fakestoreapi.com/';
+  }
 
   final Dio _dio;
 
   String? baseUrl;
 
   @override
-  Future<LoginResponse> login() async {
+  Future<HttpResponse<List<CartsResponse>>> getCarts(int userId) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'userId': userId};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<LoginResponse>(Options(
+    final _result = await _dio.fetch<List<dynamic>>(
+        _setStreamType<HttpResponse<List<CartsResponse>>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/products/1',
+              '/carts',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -41,8 +43,11 @@ class _LoginApiRepo implements LoginApiRepo {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = LoginResponse.fromJson(_result.data!);
-    return value;
+    var value = _result.data!
+        .map((dynamic i) => CartsResponse.fromJson(i as Map<String, dynamic>))
+        .toList();
+    final httpResponse = HttpResponse(value, _result);
+    return httpResponse;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {

@@ -29,11 +29,9 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: controller.isLoading.value
-                  ? null
-                  : () {
-                      controller.checkUser();
-                    },
+              onPressed: () {
+                controller.checkUser();
+              },
               child: const Text("Login"),
             ),
             TextButton(
