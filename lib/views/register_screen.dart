@@ -17,6 +17,13 @@ class RegisterScreen extends StatelessWidget {
 
   RegisterScreen({super.key});
 
+  static const List<Map<String, String>> genderOptions = [
+    // {'value': '', 'label': 'None'},
+    {'value': 'M', 'label': 'Male'},
+    {'value': 'F', 'label': 'Female'},
+    {'value': 'O', 'label': 'Other'}
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,14 +85,15 @@ class RegisterScreen extends StatelessWidget {
                     },
                   ),
                   DropdownButton<String>(
-                    value: controller.registration.value.gender,
+                    value: controller.registration.value.gender.isEmpty
+                        ? null
+                        : controller.registration.value.gender,
                     hint: const Text("Select Gender"),
                     isExpanded: true,
-                    items: <String>['None', 'Male', 'Female', 'Other']
-                        .map((String value) {
+                    items: genderOptions.map((Map<String, String> item) {
                       return DropdownMenuItem<String>(
-                        value: value == 'None' ? '' : value,
-                        child: Text(value),
+                        value: item['value'],
+                        child: Text(item['label']!),
                       );
                     }).toList(),
                     onChanged: (value) {
