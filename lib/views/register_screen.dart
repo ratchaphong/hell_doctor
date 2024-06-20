@@ -2,32 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/register_controller.dart';
+import '../utilities/options.dart';
+import '../utilities/validators.dart';
 
-class RegisterScreen extends StatelessWidget {
-  final firstNameController = TextEditingController();
-  final lastNameController = TextEditingController();
-  final emailController = TextEditingController();
-  final phoneController = TextEditingController();
-  final passwordController = TextEditingController();
-  final locationController = TextEditingController();
-  final ageController = TextEditingController();
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   final RegisterController controller = Get.put(RegisterController());
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  RegisterScreen({super.key});
-
-  static const List<Map<String, String>> genderOptions = [
-    // {'value': '', 'label': 'None'},
-    {'value': 'M', 'label': 'Male'},
-    {'value': 'F', 'label': 'Female'},
-    {'value': 'O', 'label': 'Other'}
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Register")),
       body: Obx(() => controller.isLoading.value
           ? const Center(child: CircularProgressIndicator())
           : Form(
@@ -36,8 +27,8 @@ class RegisterScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 children: [
                   TextFormField(
-                    controller: firstNameController,
-                    decoration: const InputDecoration(labelText: "First name"),
+                    controller: controller.firstNameController,
+                    decoration: const InputDecoration(labelText: 'First name'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your first name';
@@ -46,8 +37,8 @@ class RegisterScreen extends StatelessWidget {
                     },
                   ),
                   TextFormField(
-                    controller: lastNameController,
-                    decoration: const InputDecoration(labelText: "Last name"),
+                    controller: controller.lastNameController,
+                    decoration: const InputDecoration(labelText: 'Last name'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your last name';
@@ -55,20 +46,20 @@ class RegisterScreen extends StatelessWidget {
                       return null;
                     },
                   ),
-                  TextField(
-                      controller: emailController,
-                      decoration: const InputDecoration(labelText: "Email")),
-                  TextField(
-                      controller: phoneController,
-                      decoration: const InputDecoration(labelText: "Phone")),
-                  TextField(
-                      controller: passwordController,
-                      obscureText: true,
-                      decoration: const InputDecoration(labelText: "Password")),
                   TextFormField(
-                    controller: ageController,
+                      controller: controller.emailController,
+                      decoration: const InputDecoration(labelText: 'Email')),
+                  TextFormField(
+                      controller: controller.phoneController,
+                      decoration: const InputDecoration(labelText: 'Phone')),
+                  TextFormField(
+                      controller: controller.passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(labelText: 'Password')),
+                  TextFormField(
+                    controller: controller.ageController,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(labelText: "Age"),
+                    decoration: const InputDecoration(labelText: 'Age'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter your age';
@@ -88,7 +79,7 @@ class RegisterScreen extends StatelessWidget {
                     value: controller.registration.value.gender.isEmpty
                         ? null
                         : controller.registration.value.gender,
-                    hint: const Text("Select Gender"),
+                    hint: const Text('Select Gender'),
                     isExpanded: true,
                     items: genderOptions.map((Map<String, String> item) {
                       return DropdownMenuItem<String>(
@@ -104,29 +95,20 @@ class RegisterScreen extends StatelessWidget {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         controller.registerUser(
-                          firstName: firstNameController.text,
-                          lastName: lastNameController.text,
-                          email: emailController.text,
-                          phone: phoneController.text,
-                          password: passwordController.text,
-                          gender: controller.registration.value.gender,
-                          age: int.tryParse(ageController.text) ?? 0,
+                          firstName: controller.firstNameController.text,
+                          lastName: controller.lastNameController.text,
+                          email: controller.emailController.text,
+                          phone: controller.phoneController.text,
+                          password: controller.passwordController.text,
+                          age: int.tryParse(controller.ageController.text) ?? 0,
                         );
                       }
                     },
-                    // style: ElevatedButton.styleFrom(
-                    //   foregroundColor: Colors.white,
-                    //   backgroundColor: const Color(0xFFE57373),
-                    // ),
-                    child: const Text("Register"),
+                    child: const Text('Register'),
                   ),
                 ],
               ),
             )),
     );
-  }
-
-  bool isNumeric(String value) {
-    return double.tryParse(value) != null;
   }
 }

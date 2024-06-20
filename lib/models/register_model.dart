@@ -17,10 +17,3 @@ class Registration {
     required this.age,
   });
 }
-
-class RegistrationResponse {
-  bool success;
-  String message;
-
-  RegistrationResponse({required this.success, required this.message});
-}
