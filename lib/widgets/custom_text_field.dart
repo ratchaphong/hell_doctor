@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../utilities/theme.dart';
+
 class CustomTextField extends StatelessWidget {
   final String hintText;
   final String iconPath;
@@ -29,22 +31,24 @@ class CustomTextField extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       textAlignVertical: TextAlignVertical.center,
       decoration: InputDecoration(
-        focusColor: Colors.black26,
-        fillColor: const Color.fromARGB(255, 247, 247, 247),
+        focusColor: ColorResources.black2,
+        fillColor: ColorResources.white2,
         filled: true,
         prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Image.asset(iconPath),
         ),
-        prefixIconColor: const Color.fromARGB(255, 3, 190, 150),
+        prefixIconColor: ColorResources.lightLight1,
         label: Text(
           hintText,
-          style: GoogleFonts.poppins(fontSize: 15),
+          style: GoogleFonts.robotoMono(
+            fontSize: FontSizes.sizeBase,
+          ),
         ),
         floatingLabelBehavior: FloatingLabelBehavior.never,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(32),
         ),
       ),
       validator: validator,

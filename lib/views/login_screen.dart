@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../controllers/login_controller.dart';
 import '../gen/assets.gen.dart';
+import '../utilities/theme.dart';
+import '../widgets/primary_button.dart';
 import '../widgets/custom_text_field.dart';
 import 'register_screen.dart';
 
@@ -21,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorResources.white1,
       body: Form(
         key: _formKey,
         child: Container(
@@ -63,10 +65,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   GestureDetector(
                     onTap: () {},
                     child: Text(
-                      "Forgot your password?",
+                      'Forgot your password?',
                       style: GoogleFonts.robotoMono(
-                        fontSize: 12,
-                        color: const Color.fromARGB(255, 3, 190, 150),
+                        fontSize: FontSizes.sizeXs,
+                        color: ColorResources.lightLight1,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -79,28 +81,13 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
                 width: MediaQuery.of(context).size.width * 0.9,
-                child: ElevatedButton(
+                child: PrimaryButton(
+                  text: 'Login',
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       controller.checkUser();
                     }
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(255, 3, 190, 150),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Text(
-                    "Login",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.robotoMono(
-                      fontSize: 18,
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 0,
-                    ),
-                  ),
                 ),
               ),
               const SizedBox(height: 24),
@@ -110,17 +97,19 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     "Don't have an account? ",
                     style: GoogleFonts.robotoMono(
-                        fontSize: 16, color: Colors.black87),
+                      fontSize: FontSizes.sizeBase,
+                      color: ColorResources.black1,
+                    ),
                   ),
                   GestureDetector(
                     onTap: () {
                       Get.to(() => const RegisterScreen());
                     },
                     child: Text(
-                      "Sign Up",
+                      'Sign Up',
                       style: GoogleFonts.robotoMono(
-                        fontSize: 16,
-                        color: const Color.fromARGB(255, 3, 190, 150),
+                        fontSize: FontSizes.sizeBase,
+                        color: ColorResources.lightLight1,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

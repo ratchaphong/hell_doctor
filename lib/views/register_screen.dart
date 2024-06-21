@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/gen/assets.gen.dart';
+import 'package:hell_care/widgets/primary_button.dart';
 
 import '../controllers/register_controller.dart';
+import '../utilities/theme.dart';
 import '../widgets/custom_text_field.dart';
 import 'login_screen.dart';
 // import '../utilities/options.dart';
@@ -36,39 +38,30 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const SizedBox(
                       height: 48,
                     ),
-                    // TextFormField(
-                    //   controller: controller.firstNameController,
-                    //   decoration:
-                    //       const InputDecoration(labelText: 'First name'),
-                    //   validator: (value) {
-                    //     if (value == null || value.isEmpty) {
-                    //       return 'Please enter your first name';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
                     CustomTextField(
                       controller: controller.firstNameController,
                       hintText: 'First name',
                       iconPath: Assets.icons.person.path,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your first name';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(
                       height: 8,
                     ),
-                    // TextFormField(
-                    //   controller: controller.lastNameController,
-                    //   decoration: const InputDecoration(labelText: 'Last name'),
-                    //   validator: (value) {
-                    //     if (value == null || value.isEmpty) {
-                    //       return 'Please enter your last name';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
                     CustomTextField(
                       controller: controller.lastNameController,
                       hintText: 'Last name',
                       iconPath: Assets.icons.person.path,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your last name';
+                        }
+                        return null;
+                      },
                     ),
                     const SizedBox(
                       height: 8,
@@ -98,10 +91,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onChanged: (bool? value) {},
                         ),
                         Text(
-                          "I agree to the terms and conditions",
+                          'I agree to the terms and conditions',
                           style: GoogleFonts.robotoMono(
-                            fontSize: 12,
-                            color: Colors.black87,
+                            fontSize: FontSizes.sizeXs,
+                            color: ColorResources.black1,
                           ),
                         ),
                       ],
@@ -147,7 +140,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width * 0.9,
-                      child: ElevatedButton(
+                      child: PrimaryButton(
+                        text: 'Create account',
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             controller.registerUser(
@@ -162,23 +156,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             );
                           }
                         },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 3, 190, 150),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        child: Text(
-                          "Create account",
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.robotoMono(
-                            fontSize: 18,
-                            color: const Color.fromARGB(255, 255, 255, 255),
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 0,
-                          ),
-                        ),
                       ),
                     ),
                     const SizedBox(
@@ -188,19 +165,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Already have an account? ",
+                          'Already have an account? ',
                           style: GoogleFonts.robotoMono(
-                              fontSize: 14, color: Colors.black87),
+                            fontSize: FontSizes.sizeSm,
+                            color: ColorResources.black1,
+                          ),
                         ),
                         GestureDetector(
                           onTap: () {
                             Get.to(() => const LoginScreen());
                           },
                           child: Text(
-                            "Sign in",
+                            'Sign in',
                             style: GoogleFonts.robotoMono(
-                              fontSize: 14,
-                              color: const Color.fromARGB(255, 3, 190, 150),
+                              fontSize: FontSizes.sizeSm,
+                              color: ColorResources.lightLight1,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

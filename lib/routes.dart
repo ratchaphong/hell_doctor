@@ -7,7 +7,7 @@ import 'views/splash_screen.dart';
 
 class Routes {
   static final routes = [
-    GetPage(name: '/', page: () => const SplashScreen()),
+    GetPage(name: '/', page: () => SplashScreen()),
     GetPage(name: '/login', page: () => LoginScreen()),
     GetPage(name: '/register', page: () => RegisterScreen()),
     GetPage(name: '/home', page: () => const HomeScreen()),

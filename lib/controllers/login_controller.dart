@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hell_care/models/products_response.dart';
 import 'package:hell_care/service/cart_client.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/carts_response.dart';
 import '../models/login_request.dart';
@@ -52,6 +53,7 @@ class LoginController extends GetxController {
       await _loginClient
           .login(LoginRequest(password: password.value, user: user.value));
       print('Login successful.');
+      savedCredentials();
 
       if (user.value == 'admin' && password.value == 'admin') {
         Get.offAll(() => const HomeScreen());
@@ -62,6 +64,21 @@ class LoginController extends GetxController {
       isLoading(false);
       Get.snackbar('Login Failed', e.toString(),
           snackPosition: SnackPosition.BOTTOM);
+    }
+  }
+
+  void savedCredentials() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user', user.value);
+    await prefs.setString('lastLogin', DateTime.now().toIso8601String());
+  }
+
+  void checkSavedCredentials() async {
+    final prefs = await SharedPreferences.getInstance();
+    String? user = prefs.getString('user');
+    String? lastLogin = prefs.getString('lastLogin');
+    if (user != null && lastLogin != null) {
+      print("Last login by $user at $lastLogin");
     }
   }
 
