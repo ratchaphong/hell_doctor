@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'views/home_screen.dart';
+import 'views/home_screen/home_screen.dart';
 import 'views/login_screen.dart';
 import 'views/register_screen.dart';
 import 'views/splash_screen.dart';
