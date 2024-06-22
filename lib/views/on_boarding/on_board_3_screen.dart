@@ -41,7 +41,7 @@ class OnBoard3Screen extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      ColorResources.white4,
+                      ColorResources.white2,
                       ColorResources.white1,
                     ],
                   ),

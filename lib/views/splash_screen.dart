@@ -24,18 +24,30 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> checkSavedCredentialsAndNavigate() async {
     final prefs = await SharedPreferences.getInstance();
     String? user = prefs.getString('user');
-    String? lastLogin = prefs.getString('lastLogin');
-    if (user != null && lastLogin != null) {
-      print("Last login by $user at $lastLogin");
+    String? lastLoginString = prefs.getString('lastLogin');
+
+    if (user != null && lastLoginString != null) {
+      print("Last login by $user at $lastLoginString");
+      DateTime lastLogin = DateTime.tryParse(lastLoginString) ?? DateTime.now();
+      int differenceInMinutes = DateTime.now().difference(lastLogin).inMinutes;
+      print("The time has passed $differenceInMinutes minutes.");
+      if (differenceInMinutes > 10) {
+        await prefs.remove('lastLogin');
+        lastLoginString = null;
+        print('User credentials cleared due to inactivity.');
+      }
     }
-    bool isLoggedIn = user != null;
+    bool isLoggedIn = user != null && lastLoginString != null;
 
     Future.delayed(const Duration(seconds: 3), () {
       if (isLoggedIn) {
         Get.offAllNamed('/home');
       } else {
-        Get.to(() => const OnBoarding());
-        // Get.offAllNamed('/login');
+        if (user != null) {
+          Get.offAllNamed('/login');
+        } else {
+          Get.to(() => const OnBoarding());
+        }
       }
     });
   }

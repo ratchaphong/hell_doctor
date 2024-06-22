@@ -20,7 +20,7 @@ class MainController extends GetxController {
   }
 
   void setPage(int index) async {
-    isLoading(true);
+    // isLoading(true);
     print(index);
     motionTabBarController!.index = index;
   }

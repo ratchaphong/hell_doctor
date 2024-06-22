@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
 import 'package:hell_care/views/main_page/main_page_content_component.dart';
@@ -7,6 +8,8 @@ import 'package:hell_care/widgets/loading.dart';
 import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 import 'package:motion_tab_bar_v2/motion-tab-controller.dart';
+
+import '../profile_screen/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -84,16 +87,16 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
           ],
           tabSize: 50,
           tabBarHeight: 55,
-          textStyle: const TextStyle(
-            fontSize: 12,
-            color: Colors.white,
+          textStyle: GoogleFonts.robotoMono(
+            fontSize: FontSizes.sizeXs,
             fontWeight: FontWeight.w500,
+            color: ColorResources.white1,
           ),
           tabIconColor: ColorResources.grey1,
           tabIconSize: 28.0,
           tabIconSelectedSize: 26.0,
           tabSelectedColor: ColorResources.lightLight1,
-          tabIconSelectedColor: Colors.white,
+          tabIconSelectedColor: ColorResources.white1,
           tabBarColor: ColorResources.darkGreen1,
           onTabItemSelected: (int value) {
             setState(() {
@@ -115,9 +118,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     MainPageContentComponent(
                         title: "Home Page",
                         controller: controller.motionTabBarController!),
-                    MainPageContentComponent(
-                        title: "Profile Page",
-                        controller: controller.motionTabBarController!),
+                    const ProfileScreen(),
                     MainPageContentComponent(
                         title: "Settings Page",
                         controller: controller.motionTabBarController!),

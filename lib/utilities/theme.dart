@@ -4,14 +4,17 @@ class ColorResources {
   static const Color darkGreen1 = Color.fromARGB(255, 1, 77, 60);
   static const Color lightLight1 = Color.fromARGB(255, 3, 190, 150);
   static const Color lightLight2 = Color.fromARGB(255, 170, 255, 237);
+  static const Color lightLight3 = Color.fromARGB(255, 3, 226, 215);
   static const Color white1 = Color.fromARGB(255, 255, 255, 255);
   static const Color white2 = Color.fromARGB(255, 247, 247, 247);
   static const Color white3 = Color.fromARGB(255, 255, 255, 255);
-  static const Color white4 = Color.fromARGB(255, 247, 247, 247);
+  // static const Color white4 = Color.fromARGB(255, 247, 247, 247);
+  static const Color white5 = Color.fromARGB(255, 245, 243, 243);
   static const Color black1 = Colors.black87;
   static const Color black2 = Colors.black26;
   static const Color black3 = Color.fromARGB(255, 37, 37, 37);
   static const Color grey1 = Colors.grey;
+  static const Color red1 = Colors.red;
 }
 
 class FontSizes {
