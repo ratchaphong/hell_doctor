@@ -13,7 +13,7 @@ import '../models/post_request.dart';
 import '../service/login_client.dart';
 import '../service/post_client.dart';
 import '../service/product_client.dart';
-import '../views/home_screen/home_screen.dart';
+import '../views/main_page/main_screen.dart';
 
 class LoginController extends GetxController {
   final ProductClient _productClient = ProductClient(Dio());
@@ -56,7 +56,7 @@ class LoginController extends GetxController {
       savedCredentials();
 
       if (user.value == 'admin' && password.value == 'admin') {
-        Get.offAll(() => const HomeScreen());
+        Get.offAll(() => const MainScreen());
       } else {
         throw Exception('Invalid username or password');
       }
