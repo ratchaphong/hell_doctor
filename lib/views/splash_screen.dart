@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hell_care/views/on_boarding/on_boarding_screen.dart';
 import '../gen/assets.gen.dart';
 import '../utilities/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
       if (isLoggedIn) {
         Get.offAllNamed('/home');
       } else {
-        Get.offAllNamed('/login');
+        Get.to(() => const OnBoarding());
+        // Get.offAllNamed('/login');
       }
     });
   }

@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Your Project Name',
       initialRoute: '/',
       getPages: Routes.routes,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
