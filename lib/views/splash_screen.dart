@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hell_care/views/on_boarding/on_boarding_screen.dart';
+import 'package:hell_care/views/on_boarding_screen/on_boarding_screen.dart';
 import '../gen/assets.gen.dart';
 import '../utilities/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';

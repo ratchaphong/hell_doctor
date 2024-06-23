@@ -4,9 +4,11 @@ import 'package:hell_care/gen/assets.gen.dart';
 import 'package:hell_care/utilities/theme.dart';
 
 import '../../widgets/custom_text_field.dart';
+import '../doctor_details_screen/doctor_details_screen.dart';
 import 'doctor_list.dart';
 import 'list_icons.dart';
 import 'recent_doctors.dart';
+import 'package:get/get.dart';
 
 class FindDoctorScreen extends StatelessWidget {
   const FindDoctorScreen({super.key});
@@ -27,6 +29,7 @@ class FindDoctorScreen extends StatelessWidget {
           ),
           onPressed: () {
             // Navigator.of(context).pop();
+            Get.back();
           },
         ),
         backgroundColor: ColorResources.white1,
@@ -172,6 +175,10 @@ class FindDoctorScreen extends StatelessWidget {
                 //     PageTransition(
                 //         type: PageTransitionType.rightToLeft,
                 //         child: DoctorDetails()));
+                Get.to(
+                  () => const DoctorDetailsScreen(),
+                  transition: Transition.rightToLeft,
+                );
               },
               child: DoctorList(
                 distance: "800m away",

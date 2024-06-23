@@ -9,7 +9,7 @@ import 'package:hell_care/widgets/loading.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 import 'package:motion_tab_bar_v2/motion-tab-controller.dart';
 
-import '../find_doctor/find_doctor_screen.dart';
+import '../find_doctor_screen/find_doctor_screen.dart';
 import '../profile_screen/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
