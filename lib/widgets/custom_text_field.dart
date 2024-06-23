@@ -36,7 +36,11 @@ class CustomTextField extends StatelessWidget {
         filled: true,
         prefixIcon: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Image.asset(iconPath),
+          child: Image.asset(
+            iconPath,
+            width: 24,
+            height: 24,
+          ),
         ),
         prefixIconColor: ColorResources.lightGreen1,
         label: Text(

@@ -33,7 +33,7 @@ class FindDoctorScreen extends StatelessWidget {
         title: Text(
           "Find Doctor",
           style: GoogleFonts.robotoMono(
-            color: const Color.fromARGB(255, 51, 47, 47),
+            color: ColorResources.black6,
             fontSize: FontSizes.sizeLg,
             fontWeight: FontWeight.w600,
             letterSpacing: 1,
@@ -50,10 +50,17 @@ class FindDoctorScreen extends StatelessWidget {
             const SizedBox(
               height: 24,
             ),
-            CustomTextField(
-              controller: searchController,
-              hintText: 'Search doctor, drugs, articles...',
-              iconPath: Assets.icons.person.path,
+            Form(
+              key: _formKey,
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height * 0.06,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: CustomTextField(
+                  controller: searchController,
+                  hintText: 'Search doctor, drugs, articles...',
+                  iconPath: Assets.icons.search.path,
+                ),
+              ),
             ),
             // Center(
             //   child: Container(
@@ -75,13 +82,16 @@ class FindDoctorScreen extends StatelessWidget {
             //             horizontal: 10,
             //           ),
             //           child: SizedBox(
-            //             height: MediaQuery.of(context).size.height * 0.01,
-            //             width: MediaQuery.of(context).size.width * 0.01,
-            //             child: Image.asset(
-            //               "lib/icons/search.png",
-            //               filterQuality: FilterQuality.high,
-            //             ),
-            //           ),
+            //               height: MediaQuery.of(context).size.height * 0.01,
+            //               width: MediaQuery.of(context).size.width * 0.01,
+            //               // child: Image.asset(
+            //               //   "lib/icons/search.png",
+            //               //   filterQuality: FilterQuality.high,
+            //               // ),
+            //               child: Image.asset(
+            //                 Assets.icons.search.path,
+            //                 filterQuality: FilterQuality.high,
+            //               )),
             //         ),
             //         prefixIconColor: const Color.fromARGB(255, 3, 190, 150),
             //         label: const Text("Search doctor, drugs, articles..."),
