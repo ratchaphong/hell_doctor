@@ -5,10 +5,11 @@ import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
 import 'package:hell_care/views/main_page/main_page_content_component.dart';
 import 'package:hell_care/widgets/loading.dart';
-import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
+// import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 import 'package:motion_tab_bar_v2/motion-tab-controller.dart';
 
+import '../find_doctor/find_doctor_screen.dart';
 import '../profile_screen/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -95,7 +96,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
           tabIconColor: ColorResources.grey1,
           tabIconSize: 28.0,
           tabIconSelectedSize: 26.0,
-          tabSelectedColor: ColorResources.lightLight1,
+          tabSelectedColor: ColorResources.lightGreen1,
           tabIconSelectedColor: ColorResources.white1,
           tabBarColor: ColorResources.darkGreen1,
           onTabItemSelected: (int value) {
@@ -119,9 +120,10 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         title: "Home Page",
                         controller: controller.motionTabBarController!),
                     const ProfileScreen(),
-                    MainPageContentComponent(
-                        title: "Settings Page",
-                        controller: controller.motionTabBarController!),
+                    const FindDoctorScreen()
+                    // MainPageContentComponent(
+                    //     title: "Settings Page",
+                    //     controller: controller.motionTabBarController!),
                   ],
                 ),
         ));

@@ -38,7 +38,7 @@ class CustomTextField extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: Image.asset(iconPath),
         ),
-        prefixIconColor: ColorResources.lightLight1,
+        prefixIconColor: ColorResources.lightGreen1,
         label: Text(
           hintText,
           style: GoogleFonts.robotoMono(

@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       'Forgot your password?',
                       style: GoogleFonts.robotoMono(
                         fontSize: FontSizes.sizeXs,
-                        color: ColorResources.lightLight1,
+                        color: ColorResources.lightGreen1,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -109,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       'Sign Up',
                       style: GoogleFonts.robotoMono(
                         fontSize: FontSizes.sizeBase,
-                        color: ColorResources.lightLight1,
+                        color: ColorResources.lightGreen1,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

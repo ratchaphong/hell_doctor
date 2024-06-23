@@ -12,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorResources.lightLight3,
+      backgroundColor: ColorResources.lightGreen3,
       body: SingleChildScrollView(
         child: Column(
           children: [
