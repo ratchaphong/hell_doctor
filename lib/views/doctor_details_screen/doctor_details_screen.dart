@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hell_care/views/appointment_screen/appointment_screen.dart';
+// import 'package:hell_care/views/find_doctor_screen/find_doctor_screen.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../utilities/theme.dart';
@@ -39,6 +41,10 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
           onPressed: () {
             // Navigator.of(context).pop();
             Get.back();
+            // Get.to(
+            //   () => const FindDoctorScreen(),
+            //   transition: Transition.fade,
+            // );
           },
         ),
         title: Text(
@@ -252,6 +258,10 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                       //     PageTransition(
                       //         type: PageTransitionType.rightToLeft,
                       //         child: appointment()));
+                      Get.to(
+                        () => const AppointmentScreen(),
+                        transition: Transition.rightToLeft,
+                      );
                     },
                     child: Container(
                       height: MediaQuery.of(context).size.height * 0.06,

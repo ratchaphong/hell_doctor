@@ -7,6 +7,7 @@ class ColorResources {
   static const Color lightGreen3 = Color.fromARGB(255, 3, 226, 215);
   static const Color lightGreen4 = Color.fromARGB(255, 4, 179, 120);
   static const Color lightGreen5 = Color.fromARGB(255, 2, 179, 149);
+  static const Color lightGreen6 = Color.fromARGB(255, 5, 185, 155);
   static const Color white1 = Color.fromARGB(255, 255, 255, 255);
   static const Color white2 = Color.fromARGB(255, 247, 247, 247);
   static const Color white3 = Color.fromARGB(255, 255, 255, 255);
@@ -23,6 +24,7 @@ class ColorResources {
   static const Color grey1 = Colors.grey;
   static const Color grey2 = Color.fromARGB(255, 133, 133, 133);
   static const Color grey3 = Color.fromARGB(135, 238, 236, 236);
+  static const Color grey4 = Color.fromARGB(255, 241, 241, 241);
 
   static const Color red1 = Colors.red;
 }

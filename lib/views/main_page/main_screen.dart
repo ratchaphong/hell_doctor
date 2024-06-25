@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
 import 'package:hell_care/views/main_page/main_page_content_component.dart';
+import 'package:hell_care/views/message_screen/message_screen.dart';
 import 'package:hell_care/widgets/loading.dart';
 // import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
@@ -120,7 +121,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                         title: "Home Page",
                         controller: controller.motionTabBarController!),
                     const ProfileScreen(),
-                    const FindDoctorScreen()
+                    const MessageScreen()
                     // MainPageContentComponent(
                     //     title: "Settings Page",
                     //     controller: controller.motionTabBarController!),
