@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'views/main_page/main_screen.dart';
+import 'views/main_screen/main_screen.dart';
 import 'views/login_screen.dart';
 import 'views/register_screen.dart';
 import 'views/splash_screen.dart';

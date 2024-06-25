@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:motion_tab_bar_v2/motion-tab-controller.dart';
 
-class MainPageContentComponent extends StatelessWidget {
+class MainPageContentWidget extends StatelessWidget {
   final String title;
   final MotionTabBarController controller;
-  const MainPageContentComponent({
+  const MainPageContentWidget({
     required this.title,
     required this.controller,
     Key? key,

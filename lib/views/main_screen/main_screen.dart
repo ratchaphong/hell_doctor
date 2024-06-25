@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
-import 'package:hell_care/views/main_page/main_page_content_component.dart';
+import 'package:hell_care/views/main_screen/main_page_content_widget.dart';
 import 'package:hell_care/views/message_screen/message_screen.dart';
 import 'package:hell_care/views/shedule_screen/shedule_screen.dart';
 import 'package:hell_care/widgets/loading.dart';
@@ -88,8 +88,8 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             //   show: true, // true / false
             // ),
           ],
-          tabSize: 50,
-          tabBarHeight: 55,
+          tabSize: 48,
+          tabBarHeight: 56,
           textStyle: GoogleFonts.robotoMono(
             fontSize: FontSizes.sizeXs,
             fontWeight: FontWeight.w500,
@@ -115,15 +115,15 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       const NeverScrollableScrollPhysics(), // swipe navigation handling is not supported
                   controller: controller.motionTabBarController,
                   children: <Widget>[
-                    MainPageContentComponent(
+                    MainPageContentWidget(
                         title: "Dashboard Page",
                         controller: controller.motionTabBarController!),
-                    // MainPageContentComponent(
-                    //     title: "Home Page",
-                    //     controller: controller.motionTabBarController!),
                     const SheduleScreen(),
                     const MessageScreen(),
                     const ProfileScreen(),
+                    // MainPageContentComponent(
+                    //     title: "Home Page",
+                    //     controller: controller.motionTabBarController!),
                     // MainPageContentComponent(
                     //     title: "Settings Page",
                     //     controller: controller.motionTabBarController!),

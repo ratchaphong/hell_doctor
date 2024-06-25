@@ -13,7 +13,7 @@ import '../models/post_request.dart';
 import '../service/login_client.dart';
 import '../service/post_client.dart';
 import '../service/product_client.dart';
-import '../views/main_page/main_screen.dart';
+import '../views/main_screen/main_screen.dart';
 
 class LoginController extends GetxController {
   final ProductClient _productClient = ProductClient(Dio());
