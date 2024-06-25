@@ -5,6 +5,7 @@ import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
 import 'package:hell_care/views/main_page/main_page_content_component.dart';
 import 'package:hell_care/views/message_screen/message_screen.dart';
+import 'package:hell_care/views/shedule_screen/shedule_screen.dart';
 import 'package:hell_care/widgets/loading.dart';
 // import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
@@ -44,14 +45,14 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
         bottomNavigationBar: MotionTabBar(
           controller: controller
               .motionTabBarController, // ADD THIS if you need to change your tab programmatically
-          initialSelectedTab: "Home",
+          initialSelectedTab: "Dashboard",
           useSafeArea: true,
-          labels: const ["Dashboard", "Home", "Profile", "Settings"],
+          labels: const ["Dashboard", "Shedule", "Message", "Profile"],
           icons: const [
             Icons.dashboard,
-            Icons.home,
+            Icons.checklist,
+            Icons.message,
             Icons.people_alt,
-            Icons.settings
           ],
 
           badges: [
@@ -117,11 +118,12 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     MainPageContentComponent(
                         title: "Dashboard Page",
                         controller: controller.motionTabBarController!),
-                    MainPageContentComponent(
-                        title: "Home Page",
-                        controller: controller.motionTabBarController!),
+                    // MainPageContentComponent(
+                    //     title: "Home Page",
+                    //     controller: controller.motionTabBarController!),
+                    const SheduleScreen(),
+                    const MessageScreen(),
                     const ProfileScreen(),
-                    const MessageScreen()
                     // MainPageContentComponent(
                     //     title: "Settings Page",
                     //     controller: controller.motionTabBarController!),
