@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
+import 'package:hell_care/views/dashboard_screen/dashboard_screen.dart';
 import 'package:hell_care/views/main_screen/main_page_content_widget.dart';
 import 'package:hell_care/views/message_screen/message_screen.dart';
 import 'package:hell_care/views/shedule_screen/shedule_screen.dart';
@@ -115,12 +116,13 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                       const NeverScrollableScrollPhysics(), // swipe navigation handling is not supported
                   controller: controller.motionTabBarController,
                   children: <Widget>[
-                    MainPageContentWidget(
-                        title: "Dashboard Page",
-                        controller: controller.motionTabBarController!),
+                    const DashboardScreen(),
                     const SheduleScreen(),
                     const MessageScreen(),
                     const ProfileScreen(),
+                    MainPageContentWidget(
+                        title: "Dashboard Page",
+                        controller: controller.motionTabBarController!),
                     // MainPageContentComponent(
                     //     title: "Home Page",
                     //     controller: controller.motionTabBarController!),

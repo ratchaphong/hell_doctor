@@ -9,8 +9,8 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final bool obscureText;
   final FormFieldValidator<String>? validator;
-  final ValueChanged<String>? onChanged; // onChanged แบบ optional
-
+  final ValueChanged<String>? onChanged;
+  final GestureTapCallback? onTap;
   const CustomTextField({
     super.key,
     required this.hintText,
@@ -19,6 +19,7 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     this.validator,
     this.onChanged,
+    this.onTap,
   });
 
   @override
@@ -57,6 +58,7 @@ class CustomTextField extends StatelessWidget {
       ),
       validator: validator,
       onChanged: onChanged,
+      onTap: onTap, // ใช้งาน onTap ใน TextFormField
     );
   }
 }
