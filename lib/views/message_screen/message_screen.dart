@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/utilities/theme.dart';
+import 'package:hell_care/views/chat_screen/chat_screen.dart';
 
 import '../../gen/assets.gen.dart';
 import 'message_all_widget.dart';
@@ -72,6 +74,10 @@ class _TabBarExampleState extends State<MessageScreen>
               //   PageTransition(
               //       type: PageTransitionType.bottomToTop, child: chat_screen()),
               // );
+              Get.to(
+                () => const ChatScreen(),
+                transition: Transition.downToUp,
+              );
             },
             child: MessageAllWidget(
               image: Assets.icons.maleDoctor.path,

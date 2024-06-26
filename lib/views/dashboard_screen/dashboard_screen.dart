@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/views/article_screen/article_screen.dart';
+import 'package:hell_care/views/doctor_search_screen.dart';
 import 'package:hell_care/views/find_doctor_screen/find_doctor_screen.dart';
 
 import '../../gen/assets.gen.dart';
@@ -118,11 +119,6 @@ class DashboardScreen extends StatelessWidget {
                   hintText: 'Search doctor, drugs, articles...',
                   iconPath: Assets.icons.search.path,
                   onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageTransition(
-                    //         type: PageTransitionType.rightToLeft,
-                    //         child: find_doctor()));
                     Get.to(
                       () => const FindDoctorScreen(),
                       transition: Transition.rightToLeft,
@@ -174,13 +170,8 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     PageTransition(
-                      //         type: PageTransitionType.rightToLeft,
-                      //         child: doctor_search()));
-                      // Get.off(() => DoctorSearch(),
-                      //     transition: Transition.rightToLeft);
+                      Get.off(() => const DoctorSearchScreen(),
+                          transition: Transition.rightToLeft);
                     },
                     child: Text(
                       "See all",
@@ -240,11 +231,6 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      // Navigator.pushReplacement(
-                      //     context,
-                      //     PageTransition(
-                      //         type: PageTransitionType.rightToLeft,
-                      //         child: articlePage()));
                       Get.to(
                         () => const ArticleScreen(),
                         transition: Transition.rightToLeft,
