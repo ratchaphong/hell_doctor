@@ -66,8 +66,8 @@ class _OnBoardingState extends State<OnBoarding> {
                       dotWidth: 14.0,
                       dotHeight: 7.0,
                       strokeWidth: 1.5,
-                      dotColor: ColorResources.lightLight2,
-                      activeDotColor: ColorResources.lightLight1,
+                      dotColor: ColorResources.lightGreen2,
+                      activeDotColor: ColorResources.lightGreen1,
                     ),
                   ),
                   onLastpage
@@ -79,7 +79,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             height: MediaQuery.of(context).size.height * 0.05,
                             width: MediaQuery.of(context).size.width * 0.3,
                             decoration: BoxDecoration(
-                              color: ColorResources.lightLight1,
+                              color: ColorResources.lightGreen1,
                               borderRadius: BorderRadius.circular(32),
                             ),
                             child: Center(
@@ -116,7 +116,7 @@ class _OnBoardingState extends State<OnBoarding> {
                             height: MediaQuery.of(context).size.height * 0.05,
                             width: MediaQuery.of(context).size.width * 0.3,
                             decoration: BoxDecoration(
-                              color: ColorResources.lightLight1,
+                              color: ColorResources.lightGreen1,
                               borderRadius: BorderRadius.circular(32),
                             ),
                             child: Center(

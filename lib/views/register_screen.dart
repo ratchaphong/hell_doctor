@@ -179,7 +179,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             'Sign in',
                             style: GoogleFonts.robotoMono(
                               fontSize: FontSizes.sizeSm,
-                              color: ColorResources.lightLight1,
+                              color: ColorResources.lightGreen1,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

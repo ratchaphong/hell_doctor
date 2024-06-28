@@ -286,6 +286,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo.png
   AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
+  /// File path: assets/images/pika_loader.gif
+  AssetGenImage get pikaLoader =>
+      const AssetGenImage('assets/images/pika_loader.gif');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         apple,
@@ -298,7 +302,8 @@ class $AssetsImagesGen {
         facebook,
         google,
         logoGreen,
-        logo
+        logo,
+        pikaLoader
       ];
 }
 

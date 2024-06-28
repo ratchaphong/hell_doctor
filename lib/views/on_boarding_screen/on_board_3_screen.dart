@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hell_care/gen/assets.gen.dart';
-import 'package:hell_care/utilities/theme.dart';
 
-class OnBoard1Screen extends StatelessWidget {
-  const OnBoard1Screen({super.key});
+import '../../gen/assets.gen.dart';
+import '../../utilities/theme.dart';
+
+class OnBoard3Screen extends StatelessWidget {
+  const OnBoard3Screen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +19,13 @@ class OnBoard1Screen extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.6,
           width: MediaQuery.of(context).size.width * 0.8,
           // decoration: BoxDecoration(
-          //   image: DecorationImage(
-          //       alignment: Alignment.bottomCenter,
-          //       image: AssetImage(
-          //         "images/doctor1.png",
-          //       ),
-          //       filterQuality: FilterQuality.high),
-          // ),
-          child: Assets.images.doctor1.image(
-              // fit: BoxFit.fitHeight
-              ),
+          //     image: DecorationImage(
+          //         alignment: Alignment.bottomCenter,
+          //         image: AssetImage(
+          //           "images/doctor3.png",
+          //         ),
+          //         filterQuality: FilterQuality.high)),
+          child: Assets.images.doctor3.image(),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -43,7 +41,7 @@ class OnBoard1Screen extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      ColorResources.white4,
+                      ColorResources.white2,
                       ColorResources.white1,
                     ],
                   ),
@@ -51,7 +49,7 @@ class OnBoard1Screen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Text(
-                    "Consult only with a doctor\nyou trust",
+                    "Get connect our Online\nConsultation",
                     style: GoogleFonts.robotoMono(
                       fontSize: FontSizes.sizeLg,
                       fontWeight: FontWeight.bold,
