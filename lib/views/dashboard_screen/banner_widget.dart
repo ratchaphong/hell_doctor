@@ -62,7 +62,7 @@ class BannerWidget extends StatelessWidget {
           Container(
             // color: ColorResources.darkGreen1,
             // height: MediaQuery.of(context).size.height * 0.5,
-            width: MediaQuery.of(context).size.width * 0.3,
+            width: MediaQuery.of(context).size.width * 0.28,
             alignment: Alignment.bottomCenter,
             child: Image.asset(
               // "lib/icons/female.png",
