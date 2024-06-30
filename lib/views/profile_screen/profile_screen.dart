@@ -8,14 +8,24 @@ import '../../controllers/profile_controller.dart';
 import 'custom_info_widget.dart';
 import 'profile_list.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // final profileController = Get.find<ProfileController>();
-    final ProfileController profileController = Get.put(ProfileController());
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
 
+class _ProfileScreenState extends State<ProfileScreen> {
+  final ProfileController profileController = Get.put(ProfileController());
+  @override
+  void initState() {
+    super.initState();
+    Get.find<ProfileController>().onInit();
+    print(55555);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorResources.lightGreen3,
       body: Obx(() {
