@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/carts_response.dart';
 import '../models/login_request.dart';
+import '../models/login_response.dart';
 import '../models/post_request.dart';
 import '../service/login_client.dart';
 import '../service/post_client.dart';
@@ -52,13 +53,20 @@ class LoginController extends GetxController {
     try {
       await _loginClient
           .login(LoginRequest(password: password.value, user: user.value));
-      print('Login successful.');
-      savedCredentials();
-
-      if (user.value == 'admin' && password.value == 'admin') {
-        Get.offAll(() => const MainScreen());
+      LoginResponse response = LoginResponse(
+        statusCode: 200,
+        code: "SUCCESS",
+        message: 'Login successful',
+      );
+      if (response.statusCode == 200) {
+        savedCredentials();
+        if (user.value == 'admin' && password.value == 'admin') {
+          Get.offAll(() => const MainScreen());
+        } else {
+          throw Exception('Invalid username or password');
+        }
       } else {
-        throw Exception('Invalid username or password');
+        Get.snackbar('Error', response.message);
       }
     } catch (e) {
       isLoading(false);

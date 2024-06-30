@@ -5,7 +5,7 @@ import '../utilities/theme.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-  final String iconPath;
+  final String? iconPath;
   final TextEditingController controller;
   final bool obscureText;
   final FormFieldValidator<String>? validator;
@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.hintText,
-    required this.iconPath,
+    this.iconPath,
     required this.controller,
     this.obscureText = false,
     this.validator,
@@ -35,14 +35,18 @@ class CustomTextField extends StatelessWidget {
         focusColor: ColorResources.black2,
         fillColor: ColorResources.white2,
         filled: true,
-        prefixIcon: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          child: Image.asset(
-            iconPath,
-            width: 24,
-            height: 24,
-          ),
-        ),
+        prefixIcon: iconPath != null
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Image.asset(
+                  iconPath!,
+                  width: 24,
+                  height: 24,
+                ),
+              )
+            : const SizedBox(
+                width: 48,
+              ),
         prefixIconColor: ColorResources.lightGreen1,
         label: Text(
           hintText,

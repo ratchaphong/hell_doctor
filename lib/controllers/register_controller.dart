@@ -19,7 +19,8 @@ class RegisterController extends GetxController {
   TextEditingController locationController = TextEditingController();
   TextEditingController ageController = TextEditingController();
   var isLoading = false.obs;
-  var registration = Registration(
+  var registration = RegisterModel(
+    user: '',
     firstName: '',
     lastName: '',
     email: '',
@@ -65,10 +66,13 @@ class RegisterController extends GetxController {
         gender: registration.value.gender,
         age: registration.value.age,
       ));
-      print('Registration successful.');
-      RegisterResponse response =
-          RegisterResponse(success: true, message: 'Registration successful');
-      if (response.success) {
+      RegisterResponse response = RegisterResponse(
+        statusCode: 201,
+        code: "SUCCESS",
+        message: 'Registration successful',
+      );
+      print(response);
+      if (response.statusCode == 201) {
         Get.offAllNamed('/login');
         Get.snackbar('Success', response.message);
       } else {

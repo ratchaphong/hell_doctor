@@ -55,7 +55,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     CustomTextField(
                       controller: controller.lastNameController,
                       hintText: 'Last name',
-                      iconPath: Assets.icons.person.path,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your last name';

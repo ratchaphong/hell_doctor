@@ -120,9 +120,9 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     const SheduleScreen(),
                     const MessageScreen(),
                     const ProfileScreen(),
-                    MainPageContentWidget(
-                        title: "Dashboard Page",
-                        controller: controller.motionTabBarController!),
+                    // MainPageContentWidget(
+                    //     title: "Dashboard Page",
+                    //     controller: controller.motionTabBarController!),
                     // MainPageContentComponent(
                     //     title: "Home Page",
                     //     controller: controller.motionTabBarController!),
