@@ -129,26 +129,29 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ListIcons(
-                    icon: Assets.icons.doctor.path,
-                    text: "Doctor",
-                  ),
-                  ListIcons(
-                    icon: Assets.icons.pharmacy.path,
-                    text: "Pharmacy",
-                  ),
-                  ListIcons(
-                    icon: Assets.icons.hospital.path,
-                    text: "Hospital",
-                  ),
-                  ListIcons(
-                    icon: Assets.icons.ambulance.path,
-                    text: "Ambulance",
-                  ),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ListIcons(
+                      icon: Assets.icons.doctor.path,
+                      text: "Doctor",
+                    ),
+                    ListIcons(
+                      icon: Assets.icons.pharmacy.path,
+                      text: "Pharmacy",
+                    ),
+                    ListIcons(
+                      icon: Assets.icons.hospital.path,
+                      text: "Hospital",
+                    ),
+                    ListIcons(
+                      icon: Assets.icons.ambulance.path,
+                      text: "Ambulance",
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 12,
