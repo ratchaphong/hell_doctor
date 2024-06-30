@@ -22,7 +22,7 @@ class ProfileController extends GetxController {
   void getMyProfile() async {
     isLoading(true);
     try {
-      // await _profileClient.profile();
+      // var response = await _profileClient.profile();
       ProfileResponse response = ProfileResponse(
         statusCode: 200,
         code: "SUCCESS",

@@ -4,7 +4,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'profile_client.g.dart';
 
-@RestApi(baseUrl: "https://jsonplaceholder.typicode.com/")
+@RestApi(baseUrl: "https://fakestoreapi.com/")
 abstract class ProfileClient {
   factory ProfileClient(Dio dio, {String baseUrl}) = _ProfileClient;
 
