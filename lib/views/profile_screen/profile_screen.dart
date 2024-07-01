@@ -17,11 +17,11 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final ProfileController profileController = Get.put(ProfileController());
+
   @override
   void initState() {
     super.initState();
     Get.find<ProfileController>().onInit();
-    print(55555);
   }
 
   @override
@@ -35,7 +35,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
         var userProfile = profileController.userProfile.value;
         if (userProfile == null) {
-          return const Center(child: Text("No user profile available"));
+          return Center(
+            child: Text(
+              "No user profile available",
+              style: GoogleFonts.robotoMono(
+                fontSize: FontSizes.sizeBase,
+                fontWeight: FontWeight.w600,
+                color: ColorResources.white1,
+              ),
+            ),
+          );
         }
 
         return SingleChildScrollView(
@@ -90,9 +99,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           // image: const DecorationImage(
                           //     image: AssetImage("lib/icons/camra.png")),
                         ),
-                        child: Assets.icons.camra.image(
-                          filterQuality: FilterQuality.high,
-                        ),
+                        // child: Assets.icons.camra.image(
+                        //   filterQuality: FilterQuality.high,
+                        //   fit: BoxFit.contain,
+                        // ),
                       ),
                     ),
                   ],
@@ -125,7 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     CustomInfoWidget(
                       title: "Calories",
                       // data: "103lbs",
-                      data: userProfile.data.stats.calories,
+                      data: "${userProfile.data.stats.calories}lbs",
                       iconPath: Assets.icons.callories.path,
                     ),
                     Container(
@@ -136,7 +146,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     CustomInfoWidget(
                       title: "Weight",
                       // data: "756cal",
-                      data: userProfile.data.stats.weight,
+                      data: "${userProfile.data.stats.weight}cal",
                       iconPath: Assets.icons.weight.path,
                     ),
                     Container(
@@ -147,7 +157,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     CustomInfoWidget(
                       title: "Heart rate",
                       // data: "215bpm",
-                      data: userProfile.data.stats.heartRate,
+                      data: "${userProfile.data.stats.heartRate}bpm",
                       iconPath: Assets.icons.heart.path,
                     ),
                   ],

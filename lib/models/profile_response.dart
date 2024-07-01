@@ -23,7 +23,7 @@ class ProfileResponse {
 
   @override
   String toString() {
-    return 'ProfileRequest(statusCode: $statusCode, code: $code, data: $data)';
+    return 'ProfileResponse(statusCode: $statusCode, code: $code, data: $data)';
   }
 }
 
@@ -52,9 +52,9 @@ class Data {
 
 @JsonSerializable()
 class Stats {
-  final String calories;
-  final String weight;
-  final String heartRate;
+  final int calories;
+  final int weight;
+  final int heartRate;
 
   Stats({
     required this.calories,

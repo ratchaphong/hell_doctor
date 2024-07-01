@@ -13,8 +13,8 @@ class ProfileController extends GetxController {
   Rx<ProfileResponse?> userProfile = Rx<ProfileResponse?>(null);
 
   @override
-  void onReady() {
-    super.onReady();
+  void onInit() {
+    super.onInit();
     print('โหลดข้อมูลโปรไฟล์เมื่อเข้าหน้าโปรไฟล์');
     getMyProfile();
   }
@@ -31,9 +31,9 @@ class ProfileController extends GetxController {
           avatar: "",
           coverPhoto: "",
           stats: Stats(
-            calories: "756cal",
-            weight: '103lbs',
-            heartRate: '215bpm',
+            calories: 756,
+            weight: 103,
+            heartRate: 215,
           ),
         ),
       );

@@ -35,9 +35,9 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
     };
 
 Stats _$StatsFromJson(Map<String, dynamic> json) => Stats(
-      calories: json['calories'] as String,
-      weight: json['weight'] as String,
-      heartRate: json['heartRate'] as String,
+      calories: (json['calories'] as num).toInt(),
+      weight: (json['weight'] as num).toInt(),
+      heartRate: (json['heartRate'] as num).toInt(),
     );
 
 Map<String, dynamic> _$StatsToJson(Stats instance) => <String, dynamic>{
