@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/utilities/theme.dart';
 
-class SheduleTab2 extends StatelessWidget {
-  const SheduleTab2({super.key});
+class ScheduleTab2 extends StatelessWidget {
+  const ScheduleTab2({super.key});
 
   @override
   Widget build(BuildContext context) {

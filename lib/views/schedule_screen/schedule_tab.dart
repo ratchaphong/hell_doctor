@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/models/schedule_response.dart';
 import 'package:hell_care/utilities/theme.dart';
 
-import 'shedule_card.dart';
+import 'schedule_card.dart';
 
-class SheduleTab extends StatelessWidget {
+class ScheduleTab extends StatelessWidget {
   final List<ScheduleData> data;
 
-  const SheduleTab({
+  const ScheduleTab({
     super.key,
     required this.data,
   });
@@ -25,7 +25,7 @@ class SheduleTab extends StatelessWidget {
               ? Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: data
-                      .map((toElement) => SheduleCard(
+                      .map((toElement) => ScheduleCard(
                             confirmation: toElement.confirmation,
                             mainText: toElement.mainText,
                             subText: toElement.subText,

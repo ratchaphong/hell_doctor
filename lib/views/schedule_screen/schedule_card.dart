@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/gen/assets.gen.dart';
 import 'package:hell_care/utilities/theme.dart';
 
-class SheduleCard extends StatelessWidget {
+class ScheduleCard extends StatelessWidget {
   final String mainText;
   final String subText;
   final String image;
@@ -11,7 +11,7 @@ class SheduleCard extends StatelessWidget {
   final String time;
   final String confirmation;
 
-  const SheduleCard(
+  const ScheduleCard(
       {super.key,
       required this.mainText,
       required this.subText,

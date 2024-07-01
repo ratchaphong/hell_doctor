@@ -5,16 +5,16 @@ import 'package:hell_care/gen/assets.gen.dart';
 
 import '../../controllers/schedule_controller.dart';
 import '../../utilities/theme.dart';
-import 'shedule_tab.dart';
+import 'schedule_tab.dart';
 
-class SheduleScreen extends StatefulWidget {
-  const SheduleScreen({super.key});
+class ScheduleScreen extends StatefulWidget {
+  const ScheduleScreen({super.key});
 
   @override
-  State<SheduleScreen> createState() => _TabBarExampleState();
+  State<ScheduleScreen> createState() => _TabBarExampleState();
 }
 
-class _TabBarExampleState extends State<SheduleScreen>
+class _TabBarExampleState extends State<ScheduleScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
   final ScheduleController scheduleController = Get.put(ScheduleController());
@@ -169,13 +169,13 @@ class _TabBarExampleState extends State<SheduleScreen>
                 child: TabBarView(
                   controller: tabController,
                   children: [
-                    SheduleTab(
+                    ScheduleTab(
                       data: schedules.data,
                     ),
-                    SheduleTab(
+                    ScheduleTab(
                       data: schedules.data,
                     ),
-                    SheduleTab(
+                    ScheduleTab(
                       data: schedules.data,
                     ),
                   ],

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:hell_care/gen/assets.gen.dart';
 import 'package:hell_care/utilities/theme.dart';
 
-import 'shedule_card.dart';
+import 'schedule_card.dart';
 
-class SheduleTab1 extends StatelessWidget {
-  const SheduleTab1({super.key});
+class ScheduleTab1 extends StatelessWidget {
+  const ScheduleTab1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class SheduleTab1 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SheduleCard(
+              ScheduleCard(
                 confirmation: "Confirmed",
                 mainText: "Dr. Marcus Horizon",
                 subText: "Chardiologist",
@@ -29,7 +29,7 @@ class SheduleTab1 extends StatelessWidget {
               const SizedBox(
                 height: 24,
               ),
-              SheduleCard(
+              ScheduleCard(
                 confirmation: "Confirmed",
                 mainText: "Dr. Marcus Horizon",
                 subText: "Chardiologist",
