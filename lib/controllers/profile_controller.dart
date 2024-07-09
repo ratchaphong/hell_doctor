@@ -3,6 +3,7 @@
 // import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:hell_care/models/profile_response.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // import '../service/profile_client.dart';
 
@@ -47,5 +48,12 @@ class ProfileController extends GetxController {
       Get.snackbar('Profile Failed', e.toString(),
           snackPosition: SnackPosition.BOTTOM);
     }
+  }
+
+  Future<void> logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('user');
+    await prefs.remove('lastLogin');
+    Get.offAllNamed('/login');
   }
 }

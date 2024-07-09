@@ -226,6 +226,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       image: Assets.icons.logout.path,
                       title: "Log out",
                       color: ColorResources.red1,
+                      onTap: () {
+                        profileController.logout();
+                      },
                     ),
                   ],
                 ),

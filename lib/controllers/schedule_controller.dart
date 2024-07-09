@@ -63,6 +63,22 @@ class ScheduleController extends GetxController {
             time: '2:30 AM',
             image: Assets.icons.femaleDoctor2.path,
           ),
+          ScheduleData(
+            confirmation: 'Confirmed',
+            mainText: 'Dr. Marcus Horizon',
+            subText: 'Chardiologist',
+            date: '26/06/2022',
+            time: '10:30 AM',
+            image: Assets.icons.maleDoctor.path,
+          ),
+          ScheduleData(
+            confirmation: 'Confirmed',
+            mainText: 'Dr. Marcus Horizon',
+            subText: 'Chardiologist',
+            date: '26/06/2022',
+            time: '2:30 AM',
+            image: Assets.icons.femaleDoctor2.path,
+          ),
         ],
       );
       print(response);

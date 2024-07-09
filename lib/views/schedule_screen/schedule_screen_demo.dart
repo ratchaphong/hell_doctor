@@ -5,7 +5,7 @@ import 'package:hell_care/gen/assets.gen.dart';
 
 import '../../controllers/schedule_controller.dart';
 import '../../utilities/theme.dart';
-import 'schedule_card.dart';
+import 'schedule_tab.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});
@@ -120,7 +120,6 @@ class _TabBarExampleState extends State<ScheduleScreen>
                     unselectedLabelColor: const Color.fromARGB(255, 32, 32, 32),
                     labelColor: ColorResources.white1,
                     controller: tabController,
-                    dividerColor: Colors.transparent,
                     tabs: [
                       Tab(
                         child: Padding(
@@ -165,34 +164,23 @@ class _TabBarExampleState extends State<ScheduleScreen>
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 8,
-              ),
-              schedules.data.isNotEmpty
-                  ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: schedules.data
-                          .map((toElement) => ScheduleCard(
-                                confirmation: toElement.confirmation,
-                                mainText: toElement.mainText,
-                                subText: toElement.subText,
-                                date: toElement.date,
-                                time: toElement.time,
-                                image: toElement.image,
-                              ))
-                          .toList())
-                  : Container(
-                      alignment: Alignment.center,
-                      height: MediaQuery.of(context).size.height * 0.6,
-                      child: Text(
-                        "Nothing to show",
-                        style: GoogleFonts.robotoMono(
-                          fontSize: FontSizes.sizeLg,
-                          fontWeight: FontWeight.bold,
-                          color: ColorResources.grey1,
-                        ),
-                      ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: TabBarView(
+                  controller: tabController,
+                  children: [
+                    ScheduleTab(
+                      data: schedules.data,
                     ),
+                    ScheduleTab(
+                      data: schedules.data,
+                    ),
+                    ScheduleTab(
+                      data: schedules.data,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         );
