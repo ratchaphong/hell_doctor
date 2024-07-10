@@ -170,7 +170,6 @@ class _TabBarExampleState extends State<ScheduleScreen>
               ),
               schedules.data.isNotEmpty
                   ? Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: schedules.data
                           .map((toElement) => ScheduleCard(
                                 confirmation: toElement.confirmation,
