@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/views/article_screen/article_screen.dart';
 import 'package:hell_care/views/doctor_search_screen.dart';
 import 'package:hell_care/views/find_doctor_screen/find_doctor_screen.dart';
+import 'package:hell_care/views/main_screen/main_screen.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../utilities/theme.dart';
@@ -173,7 +174,7 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.off(() => const DoctorSearchScreen(),
+                      Get.off(() => const MainScreen(),
                           transition: Transition.rightToLeft);
                     },
                     child: Text(
