@@ -3,6 +3,8 @@
 // import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:hell_care/models/profile_response.dart';
+import 'package:hell_care/views/login_signin_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // import '../service/profile_client.dart';
 
@@ -13,8 +15,8 @@ class ProfileController extends GetxController {
   Rx<ProfileResponse?> userProfile = Rx<ProfileResponse?>(null);
 
   @override
-  void onReady() {
-    super.onReady();
+  void onInit() {
+    super.onInit();
     print('โหลดข้อมูลโปรไฟล์เมื่อเข้าหน้าโปรไฟล์');
     getMyProfile();
   }
@@ -31,9 +33,9 @@ class ProfileController extends GetxController {
           avatar: "",
           coverPhoto: "",
           stats: Stats(
-            calories: "756cal",
-            weight: '103lbs',
-            heartRate: '215bpm',
+            calories: 756,
+            weight: 103,
+            heartRate: 215,
           ),
         ),
       );
@@ -47,5 +49,13 @@ class ProfileController extends GetxController {
       Get.snackbar('Profile Failed', e.toString(),
           snackPosition: SnackPosition.BOTTOM);
     }
+  }
+
+  Future<void> logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('user');
+    await prefs.remove('lastLogin');
+    // Get.offAllNamed('/login');
+    Get.offAll(() => const LoginSignInScreen());
   }
 }

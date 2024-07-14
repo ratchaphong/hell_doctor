@@ -4,15 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/controllers/home_controller.dart';
 import 'package:hell_care/utilities/theme.dart';
 import 'package:hell_care/views/dashboard_screen/dashboard_screen.dart';
-import 'package:hell_care/views/main_screen/main_page_content_widget.dart';
 import 'package:hell_care/views/message_screen/message_screen.dart';
-import 'package:hell_care/views/shedule_screen/shedule_screen.dart';
+import 'package:hell_care/views/schedule_screen/schedule_screen.dart';
 import 'package:hell_care/widgets/loading.dart';
 // import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
 import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
 import 'package:motion_tab_bar_v2/motion-tab-controller.dart';
 
-import '../find_doctor_screen/find_doctor_screen.dart';
 import '../profile_screen/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -27,6 +25,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
     controller.motionTabBarController = MotionTabBarController(
       initialIndex: 0,
       length: 4,
@@ -48,7 +47,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
               .motionTabBarController, // ADD THIS if you need to change your tab programmatically
           initialSelectedTab: "Dashboard",
           useSafeArea: true,
-          labels: const ["Dashboard", "Shedule", "Message", "Profile"],
+          labels: const ["Dashboard", "Schedule", "Message", "Profile"],
           icons: const [
             Icons.dashboard,
             Icons.checklist,
@@ -56,7 +55,7 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
             Icons.people_alt,
           ],
 
-          badges: [
+          badges: const [
             // // Default Motion Badge Widget
             // const MotionBadgeWidget(
             //   text: '99+',
@@ -115,11 +114,11 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                   physics:
                       const NeverScrollableScrollPhysics(), // swipe navigation handling is not supported
                   controller: controller.motionTabBarController,
-                  children: <Widget>[
-                    const DashboardScreen(),
-                    const SheduleScreen(),
-                    const MessageScreen(),
-                    const ProfileScreen(),
+                  children: const <Widget>[
+                    DashboardScreen(),
+                    ScheduleScreen(),
+                    MessageScreen(),
+                    ProfileScreen(),
                     // MainPageContentWidget(
                     //     title: "Dashboard Page",
                     //     controller: controller.motionTabBarController!),

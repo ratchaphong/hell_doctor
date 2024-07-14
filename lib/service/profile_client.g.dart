@@ -13,7 +13,7 @@ class _ProfileClient implements ProfileClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://jsonplaceholder.typicode.com/';
+    baseUrl ??= 'https://fakestoreapi.com/';
   }
 
   final Dio _dio;

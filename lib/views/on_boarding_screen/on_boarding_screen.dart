@@ -5,6 +5,7 @@ import 'package:hell_care/gen/assets.gen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../utilities/theme.dart';
+import '../login_signin_screen.dart';
 import 'on_board_1_screen.dart';
 import 'on_board_2_screen.dart';
 import 'on_board_3_screen.dart';
@@ -73,7 +74,8 @@ class _OnBoardingState extends State<OnBoarding> {
                   onLastpage
                       ? GestureDetector(
                           onTap: () {
-                            Get.offAllNamed('/login');
+                            // Get.offAllNamed('/login');
+                            Get.offAll(() => const LoginSignInScreen());
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.05,

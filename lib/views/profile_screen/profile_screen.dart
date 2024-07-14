@@ -8,14 +8,24 @@ import '../../controllers/profile_controller.dart';
 import 'custom_info_widget.dart';
 import 'profile_list.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // final profileController = Get.find<ProfileController>();
-    final ProfileController profileController = Get.put(ProfileController());
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
 
+class _ProfileScreenState extends State<ProfileScreen> {
+  final ProfileController profileController = Get.put(ProfileController());
+
+  @override
+  void initState() {
+    super.initState();
+    Get.find<ProfileController>().onInit();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorResources.lightGreen3,
       body: Obx(() {
@@ -25,7 +35,16 @@ class ProfileScreen extends StatelessWidget {
 
         var userProfile = profileController.userProfile.value;
         if (userProfile == null) {
-          return const Center(child: Text("No user profile available"));
+          return Center(
+            child: Text(
+              "No user profile available",
+              style: GoogleFonts.robotoMono(
+                fontSize: FontSizes.sizeBase,
+                fontWeight: FontWeight.w600,
+                color: ColorResources.white1,
+              ),
+            ),
+          );
         }
 
         return SingleChildScrollView(
@@ -80,9 +99,10 @@ class ProfileScreen extends StatelessWidget {
                           // image: const DecorationImage(
                           //     image: AssetImage("lib/icons/camra.png")),
                         ),
-                        child: Assets.icons.camra.image(
-                          filterQuality: FilterQuality.high,
-                        ),
+                        // child: Assets.icons.camra.image(
+                        //   filterQuality: FilterQuality.high,
+                        //   fit: BoxFit.contain,
+                        // ),
                       ),
                     ),
                   ],
@@ -115,7 +135,7 @@ class ProfileScreen extends StatelessWidget {
                     CustomInfoWidget(
                       title: "Calories",
                       // data: "103lbs",
-                      data: userProfile.data.stats.calories,
+                      data: "${userProfile.data.stats.calories}lbs",
                       iconPath: Assets.icons.callories.path,
                     ),
                     Container(
@@ -126,7 +146,7 @@ class ProfileScreen extends StatelessWidget {
                     CustomInfoWidget(
                       title: "Weight",
                       // data: "756cal",
-                      data: userProfile.data.stats.weight,
+                      data: "${userProfile.data.stats.weight}cal",
                       iconPath: Assets.icons.weight.path,
                     ),
                     Container(
@@ -137,7 +157,7 @@ class ProfileScreen extends StatelessWidget {
                     CustomInfoWidget(
                       title: "Heart rate",
                       // data: "215bpm",
-                      data: userProfile.data.stats.heartRate,
+                      data: "${userProfile.data.stats.heartRate}bpm",
                       iconPath: Assets.icons.heart.path,
                     ),
                   ],
@@ -206,6 +226,9 @@ class ProfileScreen extends StatelessWidget {
                       image: Assets.icons.logout.path,
                       title: "Log out",
                       color: ColorResources.red1,
+                      onTap: () {
+                        profileController.logout();
+                      },
                     ),
                   ],
                 ),

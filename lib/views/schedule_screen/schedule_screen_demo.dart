@@ -1,70 +1,105 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/gen/assets.gen.dart';
 
+import '../../controllers/schedule_controller.dart';
 import '../../utilities/theme.dart';
-import 'shedule_tab1.dart';
-import 'shedule_tab2.dart';
+import 'schedule_tab.dart';
 
-class SheduleScreen extends StatefulWidget {
-  const SheduleScreen({super.key});
+class ScheduleScreen extends StatefulWidget {
+  const ScheduleScreen({super.key});
 
   @override
-  State<SheduleScreen> createState() => _TabBarExampleState();
+  State<ScheduleScreen> createState() => _TabBarExampleState();
 }
 
-class _TabBarExampleState extends State<SheduleScreen>
+class _TabBarExampleState extends State<ScheduleScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
+  final ScheduleController scheduleController = Get.put(ScheduleController());
 
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 3, vsync: this);
+    Get.find<ScheduleController>().onInit();
+    tabController = TabController(
+      length: 3,
+      vsync: this,
+      initialIndex: scheduleController.currentIndex.value,
+    );
+    tabController.addListener(_handleTabSelection);
+  }
+
+  void _handleTabSelection() {
+    if (tabController.indexIsChanging) {
+      // print('Tab changed to: ${tabController.index}');
+      scheduleController.handleTabChange(tabController.index);
+    }
   }
 
   @override
   void dispose() {
     tabController.dispose();
+    tabController.removeListener(_handleTabSelection);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorResources.white1,
-        appBar: AppBar(
-          title: Text(
-            "Top Doctors",
-            style: GoogleFonts.robotoMono(
-              color: ColorResources.black6,
-              fontSize: FontSizes.sizeLg,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 1,
+      backgroundColor: ColorResources.white1,
+      appBar: AppBar(
+        title: Text(
+          "Top Doctors",
+          style: GoogleFonts.robotoMono(
+            color: ColorResources.black6,
+            fontSize: FontSizes.sizeLg,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 1,
+          ),
+        ),
+        centerTitle: false,
+        elevation: 0,
+        toolbarHeight: 96,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage(
+                  // "lib/icons/bell.png",
+                  Assets.icons.bell.path,
+                ),
+              )),
             ),
           ),
-          centerTitle: false,
-          elevation: 0,
-          toolbarHeight: 96,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: Container(
-                height: 20,
-                width: 20,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage(
-                    // "lib/icons/bell.png",
-                    Assets.icons.bell.path,
-                  ),
-                )),
+        ],
+        backgroundColor: ColorResources.white1,
+      ),
+      body: Obx(() {
+        if (scheduleController.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        var schedules = scheduleController.schedule.value;
+        if (schedules == null) {
+          return Center(
+            child: Text(
+              "There is a problem.",
+              style: GoogleFonts.robotoMono(
+                fontSize: FontSizes.sizeBase,
+                fontWeight: FontWeight.w600,
+                color: ColorResources.white1,
               ),
             ),
-          ],
-          backgroundColor: ColorResources.white1,
-        ),
-        body: SingleChildScrollView(
+          );
+        }
+
+        return SingleChildScrollView(
           child: Column(
             children: [
               Padding(
@@ -133,15 +168,23 @@ class _TabBarExampleState extends State<SheduleScreen>
                 height: MediaQuery.of(context).size.height,
                 child: TabBarView(
                   controller: tabController,
-                  children: const [
-                    SheduleTab1(),
-                    SheduleTab2(),
-                    SheduleTab2(),
+                  children: [
+                    ScheduleTab(
+                      data: schedules.data,
+                    ),
+                    ScheduleTab(
+                      data: schedules.data,
+                    ),
+                    ScheduleTab(
+                      data: schedules.data,
+                    ),
                   ],
                 ),
               ),
             ],
           ),
-        ));
+        );
+      }),
+    );
   }
 }
