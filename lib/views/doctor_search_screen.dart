@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/gen/assets.gen.dart';
 import 'package:hell_care/utilities/theme.dart';
-import 'package:hell_care/views/dashboard_screen/dashboard_screen.dart';
 import 'package:hell_care/views/find_doctor_screen/doctor_list.dart';
 import 'package:hell_care/views/main_screen/main_screen.dart';
 
@@ -17,11 +16,6 @@ class DoctorSearchScreen extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            // Navigator.pushReplacement(
-            //     context,
-            //     PageTransition(
-            //         type: PageTransitionType.fade, child: Homepage()));
-            print(555555);
             Get.off(() => const MainScreen(), transition: Transition.fade);
           },
           child: Container(

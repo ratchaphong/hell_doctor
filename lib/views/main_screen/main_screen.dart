@@ -119,15 +119,6 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
                     ScheduleScreen(),
                     MessageScreen(),
                     ProfileScreen(),
-                    // MainPageContentWidget(
-                    //     title: "Dashboard Page",
-                    //     controller: controller.motionTabBarController!),
-                    // MainPageContentComponent(
-                    //     title: "Home Page",
-                    //     controller: controller.motionTabBarController!),
-                    // MainPageContentComponent(
-                    //     title: "Settings Page",
-                    //     controller: controller.motionTabBarController!),
                   ],
                 ),
         ));

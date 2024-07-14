@@ -7,7 +7,6 @@ import 'package:hell_care/views/main_screen/main_screen.dart';
 import '../../gen/assets.gen.dart';
 import '../../utilities/theme.dart';
 import '../../widgets/custom_text_field.dart';
-import '../dashboard_screen/dashboard_screen.dart';
 import 'chat_doctor.dart';
 
 class ChatScreen extends StatelessWidget {
