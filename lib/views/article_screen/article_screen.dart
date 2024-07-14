@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/gen/assets.gen.dart';
 import 'package:hell_care/views/article_screen/trending_card.dart';
 import 'package:hell_care/views/dashboard_screen/dashboard_screen.dart';
+import 'package:hell_care/views/main_screen/main_screen.dart';
 
 import '../../utilities/theme.dart';
 import '../../widgets/custom_text_field.dart';
@@ -50,7 +51,7 @@ class ArticleScreen extends StatelessWidget {
             //   ),
             // );
             Get.off(
-              () => const DashboardScreen(),
+              () => const MainScreen(),
               transition: Transition.fade,
             );
           },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hell_care/views/chat_screen/chat_info.dart';
+import 'package:hell_care/views/main_screen/main_screen.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../utilities/theme.dart';
@@ -22,7 +23,7 @@ class ChatScreen extends StatelessWidget {
         leading: GestureDetector(
           onTap: () {
             Get.off(
-              () => const DashboardScreen(),
+              () => const MainScreen(),
               transition: Transition.fade,
             );
           },

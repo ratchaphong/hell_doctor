@@ -5,6 +5,7 @@ import 'package:hell_care/gen/assets.gen.dart';
 import 'package:hell_care/utilities/theme.dart';
 import 'package:hell_care/views/dashboard_screen/dashboard_screen.dart';
 import 'package:hell_care/views/find_doctor_screen/doctor_list.dart';
+import 'package:hell_care/views/main_screen/main_screen.dart';
 
 class DoctorSearchScreen extends StatelessWidget {
   const DoctorSearchScreen({super.key});
@@ -20,7 +21,8 @@ class DoctorSearchScreen extends StatelessWidget {
             //     context,
             //     PageTransition(
             //         type: PageTransitionType.fade, child: Homepage()));
-            Get.off(() => const DashboardScreen(), transition: Transition.fade);
+            print(555555);
+            Get.off(() => const MainScreen(), transition: Transition.fade);
           },
           child: Container(
             height: 10,
